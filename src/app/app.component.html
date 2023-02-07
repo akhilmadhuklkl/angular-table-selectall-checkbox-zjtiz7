@@ -1,0 +1,198 @@
+<div class="table-data">
+  <div>
+    <!-- <div class="search">
+      <input type="text" placeholder="Search" (keyup)="filterName($event)" />
+    </div> -->
+    <table style="width:100%">
+      <tr>
+        <th><p style="font-family:verdana">SELECT ALL
+          <br>
+          <input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></p></th>
+        <th><p style="font-family:verdana">SL.
+          NO</p></th>
+        <th><p style="font-family:verdana">
+          NAME</p>
+          <!-- <div class="img-Class"> -->
+            <img
+              (click)="sortFunc('ASC', 'name')"
+              src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+            />
+            |
+            <img
+              (click)="sortFunc('DESC', 'name')"
+              src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+            />
+          <!-- </div> -->
+        </th>
+        <th><p style="font-family:verdana">
+          GENDER</p>
+          <!-- <div class="img-Class"> -->
+            <img
+              (click)="sortFunc('ASC', 'gender')"
+              src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+            />
+            |
+            <img
+              (click)="sortFunc('DESC', 'gender')"
+              src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+            />
+          <!-- </div> -->
+        </th>
+        <th><p style="font-family:verdana">
+          PHYSICS</p>
+          <!-- <div class="img-Class"> -->
+            <img
+              (click)="sortFunc('ASC', 'physics')"
+              src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+            />
+            |
+            <img
+              (click)="sortFunc('DESC', 'physics')"
+              src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+            />
+          <!-- </div> -->
+        </th>
+        <th><p style="font-family:verdana">
+          MATHS</p>
+          <!-- <div class="img-Class"> -->
+            <img
+              (click)="sortFunc('ASC', 'maths')"
+              src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+            />
+            |
+            <img
+              (click)="sortFunc('DESC', 'maths')"
+              src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+            />
+          <!-- </div> -->
+        </th>
+        <th><p style="font-family:verdana">
+          ENGLISH</p>
+          <!-- <div class="img-Class"> -->
+            <img
+              (click)="sortFunc('ASC', 'english')"
+              src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+            />
+            |
+            <img
+              (click)="sortFunc('DESC', 'english')"
+              src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+            />
+          <!-- </div> -->
+        </th>
+      </tr>
+      <tbody>
+          <tr *ngFor="let items of dataList; let i = index">
+          <th>
+            <input type="checkbox" value="{{items.id}}" [(ngModel)]="dataList[i].checked"></th>
+          <th><p style="font-family:verdana">{{ i + 1 }}</th>
+          <td><p style="font-family:verdana">{{ items.name }}</td>
+          <td><p style="font-family:verdana">{{ items.gender }}</td>
+          <td><p style="font-family:verdana"><b>
+            {{ items.physics }}
+          </b></td>
+          <td><p style="font-family:verdana"><b>{{ items.maths }}</b></td>
+          <td><p style="font-family:verdana"><b>{{ items.english }}</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <ng-container *ngIf="visible">
+      <div class="bg-white shadow-sm p-3">
+        <table style="width:100%">
+          <tr>
+            <th><p style="font-family:verdana">SL.
+              NO</p></th>
+            <th><p style="font-family:verdana">
+              NAME</p>
+              <!-- <div class="img-Class"> -->
+                <img
+                  (click)="sortFunc('ASC', 'name')"
+                  src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+                />
+                |
+                <img
+                  (click)="sortFunc('DESC', 'name')"
+                  src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                />
+              <!-- </div> -->
+            </th>
+            <th><p style="font-family:verdana">
+              GENDER</p>
+              <!-- <div class="img-Class"> -->
+                <img
+                  (click)="sortFunc('ASC', 'gender')"
+                  src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+                />
+                |
+                <img
+                  (click)="sortFunc('DESC', 'gender')"
+                  src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                />
+              <!-- </div> -->
+            </th>
+            <th><p style="font-family:verdana">
+              PHYSICS</p>
+              <!-- <div class="img-Class"> -->
+                <img
+                  (click)="sortFunc('ASC', 'physics')"
+                  src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+                />
+                |
+                <img
+                  (click)="sortFunc('DESC', 'physics')"
+                  src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                />
+              <!-- </div> -->
+            </th>
+            <th><p style="font-family:verdana">
+              MATHS</p>
+              <!-- <div class="img-Class"> -->
+                <img
+                  (click)="sortFunc('ASC', 'maths')"
+                  src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+                />
+                |
+                <img
+                  (click)="sortFunc('DESC', 'maths')"
+                  src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                />
+              <!-- </div> -->
+            </th>
+            <th><p style="font-family:verdana">
+              ENGLISH</p>
+              <!-- <div class="img-Class"> -->
+                <img
+                  (click)="sortFunc('ASC', 'english')"
+                  src="https://cdn-icons-png.flaticon.com/512/271/271239.png"
+                />
+                |
+                <img
+                  (click)="sortFunc('DESC', 'english')"
+                  src="https://cdn-icons-png.flaticon.com/512/32/32195.png"
+                />
+              <!-- </div> -->
+            </th>
+          </tr>
+          <tbody>
+              <tr *ngFor="let items of dataList; let i = index">
+              <th><p style="font-family:verdana">{{ i + 1 }}</th>
+              <td><p style="font-family:verdana">{{ items.name }}</td>
+              <td><p style="font-family:verdana">{{ items.gender }}</td>
+              <td><p style="font-family:verdana"><b>
+                {{ items.physics }}
+              </b></td>
+              <td><p style="font-family:verdana"><b>{{ items.maths }}</b></td>
+              <td><p style="font-family:verdana"><b>{{ items.english }}</b></td>
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+    </ng-container>
+    <button (click)="onclick()" type="button" class="btn  btn-success">
+      {{Submit?"SUBMIT":"HIDE"}}
+    </button>
+    <br>
+    <!-- {{dataList | json}} -->
+  </div>
+</div>
